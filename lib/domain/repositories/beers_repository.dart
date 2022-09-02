@@ -1,0 +1,8 @@
+import 'package:clean_architecture_beer_app/core/params/beer_list_request_params.dart';
+
+import '../../../../core/resources/data_state.dart';
+import '../entities/beer.dart';
+
+abstract class BeersRepository{
+  Future<DataState<List<Beer>>> fetchBeers(BeerListRequestParams params);
+}
