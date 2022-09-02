@@ -1,0 +1,1 @@
+const String kBaseUrl = 'https://api.punkapi.com/v2';
