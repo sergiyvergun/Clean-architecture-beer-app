@@ -19,7 +19,7 @@ class BeerListScreen extends StatelessWidget {
           if(state is BeerListRequestFailed){
             return Text(state.error.message);
           }
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );
