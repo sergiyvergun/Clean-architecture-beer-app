@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../domain/entities/beer.dart';
+import '../../../utils/constants/routes.dart';
 
 class BeerList extends StatelessWidget {
   const BeerList({Key? key, required this.beerList}) : super(key: key);
@@ -15,7 +17,9 @@ class BeerList extends StatelessWidget {
       itemBuilder: (context, int index) {
         Beer beer = beerList.elementAt(index);
         return InkWell(
-          onTap: (){},
+          onTap: (){
+            context.push(Routes.beerDetails,extra: beer);
+          },
           child: Container(
             padding: const EdgeInsets.all(20),
             child: Row(

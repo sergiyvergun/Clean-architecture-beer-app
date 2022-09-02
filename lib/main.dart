@@ -1,4 +1,5 @@
 import 'package:clean_architecture_beer_app/presentation/blocs/beer_list_cubit/beer_list_cubit.dart';
+import 'package:clean_architecture_beer_app/presentation/screens/beer_details_screen.dart';
 import 'package:clean_architecture_beer_app/presentation/screens/beer_list_screen.dart';
 import 'package:clean_architecture_beer_app/service_locator.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
+import 'domain/entities/beer.dart';
 import 'utils/constants/routes.dart';
 
 void main() async {
@@ -45,7 +47,13 @@ class BeerApp extends StatelessWidget {
       GoRoute(
         path: Routes.home,
         builder: (BuildContext context, GoRouterState state) =>
-        const BeerListScreen(),
+            const BeerListScreen(),
+      ),
+      GoRoute(
+        path: Routes.beerDetails,
+        builder: (context, state) {
+          return BeerDetailsScreen(beer: state.extra as Beer);
+        },
       ),
     ],
   );
