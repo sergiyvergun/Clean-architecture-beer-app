@@ -18,6 +18,14 @@ class BeerApp extends StatelessWidget {
       routeInformationParser: _router.routeInformationParser,
       routerDelegate: _router.routerDelegate,
       routeInformationProvider: _router.routeInformationProvider,
+      theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            titleTextStyle: TextStyle(
+                color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+          )),
     );
   }
 
@@ -26,7 +34,7 @@ class BeerApp extends StatelessWidget {
       GoRoute(
         path: Routes.home,
         builder: (BuildContext context, GoRouterState state) =>
-             const BeerListScreen(),
+            const BeerListScreen(),
       ),
     ],
   );
