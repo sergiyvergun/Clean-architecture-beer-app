@@ -30,7 +30,11 @@ class BeerApp extends StatelessWidget {
         routeInformationProvider: _router.routeInformationProvider,
         theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
+            dividerColor: Colors.grey[400],
             appBarTheme: const AppBarTheme(
+              iconTheme: IconThemeData(
+                color: Colors.black, //change your color here
+              ),
               backgroundColor: Colors.white,
               elevation: 0,
               titleTextStyle: TextStyle(
