@@ -10,7 +10,7 @@ class FavouriteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () {},
+        onPressed: onPressed,
         icon: Icon(selected ? Icons.bookmark : Icons.bookmark_border_outlined));
   }
 }

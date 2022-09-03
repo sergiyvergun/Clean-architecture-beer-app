@@ -5,4 +5,10 @@ import '../entities/beer.dart';
 
 abstract class BeersRepository{
   Future<DataState<List<Beer>>> fetchBeers(BeerListRequestParams params);
+
+  Future<List<Beer>> getFavouriteBeers();
+
+  Future<void> favouriteBeer(Beer beer);
+
+  Future<void> removeFavouriteBeer(Beer beer);
 }

@@ -1,11 +1,15 @@
+import 'package:clean_architecture_beer_app/core/presentation/components/favourite_button.dart';
+import 'package:clean_architecture_beer_app/presentation/blocs/favourite_beers_cubit/favourite_beers_cubit.dart';
+import 'package:clean_architecture_beer_app/presentation/blocs/favourite_beers_cubit/favourite_beers_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../domain/entities/beer.dart';
 import '../../../utils/constants/routes.dart';
 
 class BeerTile extends StatelessWidget {
-  const BeerTile({Key? key,required this.beer}) : super(key: key);
+  const BeerTile({Key? key, required this.beer}) : super(key: key);
   final Beer beer;
 
   @override
@@ -35,7 +39,7 @@ class BeerTile extends StatelessWidget {
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     'ABV: ${beer.abv}',
                     style: const TextStyle(
@@ -43,6 +47,27 @@ class BeerTile extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            BlocBuilder<FavouriteBeersCubit, FavouriteBeersState>(
+              builder: (context, state) {
+                return FavouriteButton(
+                    selected: state.beerList.map((e) => e.id).contains(beer.id),
+                    onPressed: () async {
+                      if (state is FavouriteBeersRequestSucceed &&
+                          state.beerList.map((e) => e.id).contains(beer.id)) {
+                        await context
+                            .read<FavouriteBeersCubit>()
+                            .removeFavouriteBeer(beer);
+                      } else {
+                        await context
+                            .read<FavouriteBeersCubit>()
+                            .favouriteBeer(beer);
+                      }
+                      await context
+                          .read<FavouriteBeersCubit>()
+                          .getFavouriteBeers();
+                    });
+              },
             ),
           ],
         ),
