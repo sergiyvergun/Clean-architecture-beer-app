@@ -2,6 +2,7 @@ import 'package:clean_architecture_beer_app/presentation/blocs/beer_list_cubit/b
 import 'package:clean_architecture_beer_app/presentation/blocs/favourite_beers_cubit/favourite_beers_cubit.dart';
 import 'package:clean_architecture_beer_app/presentation/screens/beer_details_screen.dart';
 import 'package:clean_architecture_beer_app/presentation/screens/beer_list_screen.dart';
+import 'package:clean_architecture_beer_app/presentation/screens/favourites_screen.dart';
 import 'package:clean_architecture_beer_app/service_locator.dart';
 import 'package:clean_architecture_beer_app/utils/constants/hive_boxes_names.dart';
 import 'package:flutter/material.dart';
@@ -71,9 +72,13 @@ class BeerApp extends StatelessWidget {
       ),
       GoRoute(
         path: Routes.beerDetails,
-        builder: (context, state) {
-          return BeerDetailsScreen(beer: state.extra as Beer);
-        },
+        builder: (context, state) =>
+            BeerDetailsScreen(beer: state.extra as Beer),
+      ),
+      GoRoute(
+        path: Routes.favourites,
+        builder: (BuildContext context, GoRouterState state) =>
+            const FavouritesScreen(),
       ),
     ],
   );

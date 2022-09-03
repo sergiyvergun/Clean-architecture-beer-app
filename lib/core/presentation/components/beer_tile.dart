@@ -22,13 +22,11 @@ class BeerTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         child: Row(
           children: [
-            Hero(
-                tag: beer.id,
-                child: Image.network(
-                  beer.imageUrl,
-                  height: 200,
-                  width: 150,
-                )),
+            Image.network(
+              beer.imageUrl,
+              height: 200,
+              width: 150,
+            ),
             const SizedBox(width: 10),
             Expanded(
               child: Column(
