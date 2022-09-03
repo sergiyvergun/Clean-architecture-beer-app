@@ -17,12 +17,10 @@ class BeerDetailsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
         children: [
-          Hero(
-              tag: beer.id,
-              child: Image.network(
-                beer.imageUrl,
-                height: 400,
-              )),
+          Image.network(
+            beer.imageUrl,
+            height: 400,
+          ),
           const SizedBox(height: 30),
           Text(
             beer.name,

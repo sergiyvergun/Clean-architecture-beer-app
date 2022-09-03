@@ -1,3 +1,4 @@
+
 import 'boil_volume.dart';
 import 'ingredients.dart';
 import 'method.dart';
@@ -11,12 +12,12 @@ class Beer {
     required this.description,
     required this.imageUrl,
     required this.abv,
-     this.ibu,
+    this.ibu,
     required this.targetFg,
     required this.targetOg,
-     this.ebc,
-     this.srm,
-     this.ph,
+    this.ebc,
+    this.srm,
+    this.ph,
     required this.attenuationLevel,
     required this.volume,
     required this.boilVolume,
